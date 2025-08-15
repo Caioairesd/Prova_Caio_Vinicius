@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.cssu">
+    <link rel="stylesheet" href="styles.css">
     <title>Recuperação de senha</title>
 </head>
 
@@ -67,7 +67,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="confirmar_senha">Confirmar senha</label>
         <input type="password" id="confirmar_senha" name="confirmar_senha" required>
 
-        <label for="checkbox" onclick="mostrarSenha()">Mostrar senha</label>
+        <label>
+            <input type="checkbox" onclick="mostrarSenha()">Mostrar senha
+        </label>
         <button type="button">Salvar senha</button>
 
     </form>
@@ -83,7 +85,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         }
-
 
 
     </script>

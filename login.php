@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 <body>
     <h2>Login</h2>
-    <form action="login.php" method="post">
+    <form action="principal.php" method="post">
         <label>E-mail</label>
         <input type="email" id="email" name="email" required>
 

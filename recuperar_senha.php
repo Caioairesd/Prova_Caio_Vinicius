@@ -44,12 +44,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperar Senha</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h2>Recuperar Senha</h2>
 
-    <form action="recuperar_senha.php" method="POST">
+    <form action="login.php" method="POST">
         <label for="email">Digite seu e-mail cadastrado:</label>
         <input type="email" name="email" id="email" required>
         
