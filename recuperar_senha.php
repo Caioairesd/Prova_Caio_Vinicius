@@ -49,7 +49,7 @@
 <body>
     <h2>Recuperar Senha</h2>
 
-    <form action="login.php" method="POST">
+    <form action="recuperar_senha.php" method="POST">
         <label for="email">Digite seu e-mail cadastrado:</label>
         <input type="email" name="email" id="email" required>
         
