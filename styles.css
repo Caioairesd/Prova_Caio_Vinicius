@@ -168,3 +168,71 @@ button {
 button:hover {
     background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
 }
+
+/* Buscar usuarios tabela*/
+
+.lista-usuarios {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    color: #1F2937;
+  }
+  
+  .lista-usuarios h1 {
+    color: #1E3A8A;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .lista-usuarios table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .lista-usuarios th,
+  .lista-usuarios td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .lista-usuarios th {
+    background-color: #1E3A8A;
+    color: white;
+  }
+  
+  .lista-usuarios tr:hover {
+    background-color: #F0F4FF;
+  }
+  
+  .lista-usuarios img {
+    max-width: 80px;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    border: 1px solid #ccc;
+  }
+  
+  .lista-usuarios a,
+  .lista-usuarios button {
+    padding: 6px 10px;
+    margin: 2px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    background-color: #3B82F6;
+    cursor: pointer;
+  }
+  
+  .lista-usuarios a:hover,
+  .lista-usuarios button:hover {
+    background-color: #2563EB;
+  }
+  
+  .lista-usuarios form {
+    display: inline;
+  }
