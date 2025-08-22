@@ -1,7 +1,9 @@
 <?php
     session_start();
-
+    
+    require_once 'includes/cabecalho.php';
     require_once 'conexao.php';
+    
 
     //GARANTE QUE O USUARIO ESTEJA LOGADO
     if(!isset($_SESSION['id_usuario'])){

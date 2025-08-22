@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once('conexao.php');
+require_once 'conexao.php';
+require_once 'includes/cabecalho.php';
 
 // VERIFICA SE O USUÁRIO TEM PERMISSÃO 
 // SUPONDO QUE O PERFIL 1 seja o adm
@@ -22,12 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $sql = "INSERT INTO usuario(nome, email,senha,id_perfil) values(:nome,:email,:senha,:id_perfil)";
     $stmt = $pdo->prepare($sql);
-    $stmt -> bindParam(':nome', $nome);
-    $stmt -> bindParam(':email', $email);
-    $stmt -> bindParam(':senha', $senha);
-    $stmt -> bindParam(':id_perfil', $id_perfi);
+    $stmt->bindParam(':nome', $nome);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':senha', $senha);
+    $stmt->bindParam(':id_perfil', $id_perfi);
 
-    if ($stmt -> execute()) {
+    if ($stmt->execute()) {
         echo "<script>alert('Usuaario cadastrado com sucesso');</script>";
     } else {
 
@@ -56,10 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <h2>Cadastrar usuário</h2>
     <form action="cadastro_usuario.php" method="post">
         <label for="nome">Nome:</label>
-        <input type="text" name=" nome" id="nome" required>
+        <input type="text" name=" nome" id="nome" pattern="[A-Za-z0-9]+" title="Não é permitido usar símbolos." required >
 
         <label for="email">Email:</label>
-        <input type="email" name=" email" id="email" required>
+        <input type="email" name=" email" id="email" required onkeypress="">
 
         <label for="senha">Senha:</label>
         <input type="password" name="senha" id="senha" required>
@@ -79,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     </form>
 
-    <a href="principal.php">Voltar</a>
+    <a href="principal.php" class="btn">Voltar</a>
+
 
 </body>
-</html>

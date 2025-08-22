@@ -29,26 +29,46 @@ header {
 
 .saudacao {
     text-align: left;
+    background: linear-gradient(135deg, #1c1c1c, #2f2f2f, #4f4f4f);
+    border-radius: 20px;
+    padding: 20px;
+    width: 600px;
+    color: #f0f0f0;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    animation: glowGrey 4s infinite ease-in-out;
 }
 
-.logout {
-    text-align: right;
+.saudacao h2 {
+    font-size: 22px;
+    margin: 0;
 }
 
 .logout button {
-    background-color: #d9534f;
-    color: white;
+    background: linear-gradient(135deg, #3a3a3a, #1c1c1c);
     border: none;
-    padding: 10px 15px;
-    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: bold;
     cursor: pointer;
-    border-radius: 5px;
+    transition: 0.3s;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
 }
 
 .logout button:hover {
-    background-color: #c9302c;
+    background: linear-gradient(135deg, #5a5a5a, #2f2f2f);
+    transform: scale(1.05);
 }
 
+/* Efeito de brilho cinza suave */
+@keyframes glowGrey {
+  0%   { box-shadow: 0 0 15px #3a3a3a; }
+  50%  { box-shadow: 0 0 30px #7a7a7a; }
+  100% { box-shadow: 0 0 15px #3a3a3a; }
+}
 .menu {
     list-style: none;
     padding: 0;
@@ -169,7 +189,7 @@ button:hover {
     background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
 }
 
-/* Buscar usuarios tabela*/
+/* Estilização da listas (tabelas)*/
 
 .lista-usuarios {
     max-width: 900px;
@@ -236,3 +256,24 @@ button:hover {
   .lista-usuarios form {
     display: inline;
   }
+
+
+  .btn {
+    display: inline-block;             /* faz o link se comportar como botão */
+    background-color: #2563EB;        /* cor de fundo (cinza escuro) */
+    color: #fff;                       /* cor do texto */
+    padding: 12px 25px;                /* espaçamento interno */
+    border-radius: 10px;               /* cantos arredondados */
+    text-decoration: none;             /* remove sublinhado do link */
+    font-weight: bold;                 /* deixa o texto em negrito */
+    transition: 0.3s;                  /* animação suave */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* sombra */
+  }
+  
+  .btn:hover {
+    background-color: #3B82F6;         /* muda cor ao passar o mouse */
+    transform: scale(1.05);            /* leve aumento ao hover */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4); /* sombra maior */
+  }
+  
+

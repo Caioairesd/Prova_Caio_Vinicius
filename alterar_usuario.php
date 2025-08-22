@@ -2,6 +2,7 @@
 session_start();
 
 require_once 'conexao.php';
+require_once 'includes/cabecalho.php';
 
 // VERIFICA SE O USUARIO TEM PERMISSAO DE adm
 if ($_SESSION['perfil'] != 1) {
@@ -79,10 +80,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <label for="id_perfil">Perfil:</label>
             <select name="id_perfil" id="id_perfil">
-                <option value="1" <?= $usuario['id_perfil'] == 1 ? 'selected': '' ?>>Administrador</option>
-                <option value="2" <?= $usuario['id_perfil'] == 2 ? 'selected': '' ?>>Secretária</option>
-                <option value="3" <?= $usuario['id_perfil'] == 3 ? 'selected': '' ?>>Almoxarife</option>
-                <option value="4" <?= $usuario['id_perfil'] == 4 ? 'selected': '' ?>>Cliente</option>
+                <option value="1" <?= $usuario['id_perfil'] == 1 ? 'selected' : '' ?>>Administrador</option>
+                <option value="2" <?= $usuario['id_perfil'] == 2 ? 'selected' : '' ?>>Secretária</option>
+                <option value="3" <?= $usuario['id_perfil'] == 3 ? 'selected' : '' ?>>Almoxarife</option>
+                <option value="4" <?= $usuario['id_perfil'] == 4 ? 'selected' : '' ?>>Cliente</option>
             </select>
             <!-- Se o usuário logado for ADM, exibir opção de alterar senha -->
 
@@ -97,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
 
     <?php endif ?>
-    <a href="principl.php">Voltar</a>
+    <a href="principl.php" class="btn">Voltar</a>
 
 </body>
 

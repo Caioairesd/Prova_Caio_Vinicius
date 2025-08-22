@@ -22,3 +22,25 @@ function validarFuncionario() {
 
     return true;
 }
+
+
+// Executar mascaras
+function mascara(o, f) //Define o objeto e chama a função
+{
+    objeto = o
+    funcao = f
+    setTimeout("executaMascara()", 1)
+
+}
+
+function executaMascara() {
+    objeto.value = funcao(objeto.value)
+
+}
+
+function nome(variavel) {
+    variavel = variavel.replace(/\d/g, "");
+
+    return variavel
+
+}

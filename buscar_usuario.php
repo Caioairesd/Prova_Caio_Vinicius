@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'conexao.php';
+require_once 'includes/cabecalho.php';
 
 if ($_SESSION['perfil'] != 1 && $_SESSION['perfil'] != 2) {
     echo "<script>alert('Acesso negado. Você não tem permissão para acessar esta página.'); window.location.href='principal.php';</script>";
@@ -82,8 +83,8 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php else: ?>
             <p>Nenhum usuário encontrado.</p>
         <?php endif; ?>
-        <a href="principal.php">Voltar</a>
     </div>
+    <a href="principal.php" class="btn">Voltar</a>
 </body>
 
 </html>
