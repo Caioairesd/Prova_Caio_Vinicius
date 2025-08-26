@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':nome', $nome);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':senha', $senha);
-    $stmt->bindParam(':id_perfil', $id_perfi);
+    $stmt->bindParam(':id_perfil', $id_perfil);
 
     if ($stmt->execute()) {
         echo "<script>alert('Usuaario cadastrado com sucesso');</script>";
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <h2>Cadastrar usuário</h2>
     <form action="cadastro_usuario.php" method="post">
         <label for="nome">Nome:</label>
-        <input type="text" name=" nome" id="nome" pattern="[A-Za-z0-9]+" title="Não é permitido usar símbolos." required >
+        <input type="text" name=" nome" id="nome" required >
 
         <label for="email">Email:</label>
         <input type="email" name=" email" id="email" required onkeypress="">

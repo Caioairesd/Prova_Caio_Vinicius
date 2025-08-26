@@ -70,7 +70,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                         <td> <?= htmlspecialchars($usuario['id_perfil']); ?></td>
                         <td>
                             <a href="excluir_usuario.php?id=<?= htmlspecialchars($usuario['id_usuario']) ?>"
-                                onclick="return confirm('Você tem certea que deseja excluí-lo?')">Excluir</a>
+                                onclick="return confirm('Você tem certeza que deseja excluí-lo?')">Excluir</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
