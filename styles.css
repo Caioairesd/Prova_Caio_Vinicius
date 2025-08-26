@@ -47,7 +47,7 @@ header {
 }
 
 .logout button {
-    background: linear-gradient(135deg, #3a3a3a, #1c1c1c);
+    background: linear-gradient(135deg, #e61212, #a31212);
     border: none;
     padding: 10px 20px;
     border-radius: 12px;
@@ -55,11 +55,11 @@ header {
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    box-shadow: 0 3px 8px #d81515;
 }
 
 .logout button:hover {
-    background: linear-gradient(135deg, #5a5a5a, #2f2f2f);
+    background: linear-gradient(135deg, #a31212, #e61212);
     transform: scale(1.05);
 }
 
