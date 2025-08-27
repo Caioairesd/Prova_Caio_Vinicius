@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="text" name=" nome_funcionario" id="nome_funcionario" required>
 
         <label for="endereco">Endereço:</label>
-        <input type="text" name=" endereco" id="endereco" required onkeypress="">
+        <input type="text" name=" endereco" id="endereco" required>
 
         <label for="telefone">Telefone:</label>
         <input type="text" name="telefone" id="telefone" required>

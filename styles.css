@@ -257,20 +257,40 @@ button:hover {
     display: inline;
   }
 
+  /* Estlos dos botões de sair*/
 
   .btn {
-    display: inline-block;             /* faz o link se comportar como botão */
-    background-color: #2563EB;        /* cor de fundo (cinza escuro) */
-    color: #fff;                       /* cor do texto */
-    padding: 12px 25px;                /* espaçamento interno */
-    border-radius: 10px;               /* cantos arredondados */
-    text-decoration: none;             /* remove sublinhado do link */
-    font-weight: bold;                 /* deixa o texto em negrito */
-    transition: 0.3s;                  /* animação suave */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* sombra */
+    display: inline-block;             
+    background-color: #2563EB;        
+    color: #fff;                      
+    padding: 12px 25px;                
+    border-radius: 10px;               
+    text-decoration: none;             
+    font-weight: bold;                 
+    transition: 0.3s;                  
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
   }
   
   .btn:hover {
+    background-color: #3B82F6;         /* muda cor ao passar o mouse */
+    transform: scale(1.05);            /* leve aumento ao hover */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4); /* sombra maior */
+  }
+
+/*Estilos do botão de recuperar senha*/
+  .btn_recuperar {
+    display: inline-block;             
+    background-color: #2563EB;        
+    color: #fff;                      
+    padding: 4px 25px;                
+    border-radius: 10px;               
+    text-decoration: none;             
+    font-weight: bold;                 
+    transition: 0.3s;                  
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+  }
+  
+  .btn_recuperar:hover {
     background-color: #3B82F6;         /* muda cor ao passar o mouse */
     transform: scale(1.05);            /* leve aumento ao hover */
     box-shadow: 0 6px 15px rgba(0,0,0,0.4); /* sombra maior */
