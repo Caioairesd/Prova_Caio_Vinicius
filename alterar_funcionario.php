@@ -116,17 +116,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="hidden" name="id_funcionario" value="<?= htmlspecialchars($funcionario['id_funcionario']) ?>">
 
             <label for="nome_funcionario">Nome:</label>
-            <input type="text" id="nome_funcionario" name="nome_funcionario" value="<?= htmlspecialchars($funcionario['nome_funcionario']) ?>" required>
+            <input type="text" id="nome_funcionario" name="nome_funcionario"
+                value="<?= htmlspecialchars($funcionario['nome_funcionario']) ?>" required onsubmit="return validarFuncionario()>
 
-            <label for="endereco">Endereco:</label>
-            <input type="text" id="endereco" name="endereco" value="<?= htmlspecialchars($funcionario['endereco']) ?>" required>
+            <label for=" endereco">Endereco:</label>
+            <input type="text" id="endereco" name="endereco" value="<?= htmlspecialchars($funcionario['endereco']) ?>"
+                required>
 
             <label for="telefone">telefone:</label>
-            <input type="text" id="telefone" name="telefone" value="<?= htmlspecialchars($funcionario['telefone']) ?>" required>
+            <input type="text" id="telefone" name="telefone" value="<?= htmlspecialchars($funcionario['telefone']) ?>"
+                maxlength="15" oninput="aplicarMascaraTelefone(this)" required>
 
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email" value="<?= htmlspecialchars($funcionario['email']) ?>" required>
-            
+            <input type="text" id="email" name="email" value="<?= htmlspecialchars($funcionario['email']) ?>"
+                ninput="aplicarMascaraEmail(this)" required>
+
             <button type="submit">Alterar</button>
             <button type="reset">Cancelar</button>
 

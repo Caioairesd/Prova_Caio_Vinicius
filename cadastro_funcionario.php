@@ -20,19 +20,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $endereco = $_POST['endereco'];
     $telefone = $_POST['telefone'];
     $email = $_POST['email'];
+    try {
+        // Verifica se o email já existe
+        $sql = "SELECT COUNT(*) FROM funcionario WHERE email = :email";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
 
-    $sql = "INSERT INTO funcionario(nome_funcionario, endereco,telefone,email) values(:nome_funcionario,:endereco,:telefone,:email)";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':nome_funcionario', $nome_funcionario);
-    $stmt->bindParam(':endereco', $endereco);
-    $stmt->bindParam(':telefone', $telefone);
-    $stmt->bindParam(':email', $email);
+        if ($stmt->fetchColumn() > 0) {
+            echo "<script>alert('Erro: Este e-mail já está cadastrado!');window.location.href='cadastro_funcionario.php';</script>";
+        } else {
+            // Faz o insert
+            $sql = "INSERT INTO funcionario (nome_funcionario, endereco, telefone, email) 
+                    VALUES (:nome_funcionario, :endereco, :telefone, :email)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':nome_funcionario', $nome_funcionario);
+            $stmt->bindParam(':endereco', $endereco);
+            $stmt->bindParam(':telefone', $telefone);
+            $stmt->bindParam(':email', $email);
 
-    if ($stmt->execute()) {
-        echo "<script>alert('Funcionário cadastrado com sucesso');</script>";
-    } else {
-        echo "<script>alert('Erro ao cadastrar funcionário');</script>";
+            if ($stmt->execute()) {
+                echo "<script>alert('Funcionário cadastrado com sucesso');</script>";
+            } else {
+                echo "<script>alert('Erro ao cadastrar funcionário'window.location.href='cadastro_funcionario.php');</script>";
+            }
+        }
+    } catch (PDOException $e) {
+        echo "<script>alert('Erro no banco de dados: " . $e->getMessage() . "');</script>";
     }
+
+
 }
 ?>
 
@@ -72,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 return false;
             }
 
-            // Validação só no envio, não durante digitação
+
             let regexTelefone = /^[0-9]{10,11}$/;
             if (!regexTelefone.test(telefone)) {
                 alert("Digite um telefone válido (10 ou 11 dígitos).");

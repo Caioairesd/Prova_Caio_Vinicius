@@ -20,28 +20,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $id_perfil = $_POST['id_perfil'];
+    try {
+        // Verifica se o email já existe
+        $sql = "SELECT COUNT(*) FROM usuario WHERE email = :email";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
 
-    $sql = "INSERT INTO usuario(nome, email,senha,id_perfil) values(:nome,:email,:senha,:id_perfil)";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':nome', $nome);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':senha', $senha);
-    $stmt->bindParam(':id_perfil', $id_perfil);
-
-    if ($stmt->execute()) {
-        echo "<script>alert('Usuário cadastrado com sucesso');</script>";
-    } else {
-        echo "<script>alert('Erro ao cadastrar usuário');</script>";
+        if ($stmt->fetchColumn() > 0) {
+            echo "<script>alert('Erro: Este e-mail já está cadastrado!');window.location.href='cadastro_usuario.php';</script>";
+        } else {
 
 
+            $sql = "INSERT INTO usuario(nome, email,senha,id_perfil) values(:nome,:email,:senha,:id_perfil)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':nome', $nome);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':senha', $senha);
+            $stmt->bindParam(':id_perfil', $id_perfil);
+
+            if ($stmt->execute()) {
+                echo "<script>alert('Usuário cadastrado com sucesso');</script>";
+            } else {
+                echo "<script>alert('Erro ao cadastrar usuário');</script>";
+
+
+            }
+        }
+
+    } catch (PDOException $e) {
+        echo "<script>alert('Erro no banco de dados: " . $e->getMessage() . "');</script>";
     }
-
 }
 
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -50,8 +62,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script>
 
-    <title>Document</title>
+        function aplicarMascaraEmail(input) {
+            input.value = input.value.toLowerCase().trim();
+        }
+
+
+        function validarUsuario() {
+            let nome = document.getElementById("nome").value.trim();
+            let email = document.getElementById("email").value.trim();
+
+            if (nome.length < 3) {
+                alert("O nome do funcionário deve ter pelo menos 3 caracteres.");
+                return false;
+            }
+
+            let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!regexEmail.test(email)) {
+                alert("Digite um e-mail válido.");
+                return false;
+            }
+
+            return true;
+        }
+
+    </script>
+    <title>Cadastrar Usuário</title>
 </head>
 
 <body>
@@ -59,10 +96,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <h2>Cadastrar usuário</h2>
     <form action="cadastro_usuario.php" method="post">
         <label for="nome">Nome:</label>
-        <input type="text" name=" nome" id="nome" required>
+        <input type="text" name=" nome" id="nome" onsubmit="return validarUsuario()>
 
-        <label for="email">Email:</label>
-        <input type="email" name=" email" id="email" required onkeypress="">
+        <label for=" email">Email:</label>
+        <input type="email" name=" email" id="email" oninput="aplicarMascaraEmail(this)" required>
 
         <label for="senha">Senha:</label>
         <input type="password" name="senha" id="senha" required>
