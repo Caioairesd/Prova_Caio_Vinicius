@@ -29,14 +29,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':id_perfil', $id_perfil);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Usuaario cadastrado com sucesso');</script>";
+        echo "<script>alert('Usuário cadastrado com sucesso');</script>";
     } else {
-
         echo "<script>alert('Erro ao cadastrar usuário');</script>";
+
 
     }
 
 }
+
 
 
 ?>
@@ -49,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+
     <title>Document</title>
 </head>
 
@@ -57,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <h2>Cadastrar usuário</h2>
     <form action="cadastro_usuario.php" method="post">
         <label for="nome">Nome:</label>
-        <input type="text" name=" nome" id="nome" required >
+        <input type="text" name=" nome" id="nome" required>
 
         <label for="email">Email:</label>
         <input type="email" name=" email" id="email" required onkeypress="">

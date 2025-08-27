@@ -22,16 +22,16 @@ $funcionarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // SE UM id FOR PASSADO VIA GET, EXCLUI O usuario
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-    $id_usuario = $_GET['id'];
+    $id_funcionario = $_GET['id'];
 
-    // EXCLUI O USUARIO DO BANCO DE DADOS
+    // EXCLUI O FUNCIONARIO DO BANCO DE DADOS
     $query = "DELETE FROM funcionario WHERE id_funcionario = :id_funcionario";
 
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":id_funcionario", $id_funcionario, PDO::PARAM_INT);
 
     if ($stmt->execute()) {
-        echo "<script> alert('Funcionário excluido com sucesso!'); window.location.href='buscar_funcionario.php'; </script>";
+        echo "<script> alert('Funcionário excluido com sucesso!'); window.location.href='excluir_funcionario.php'; </script>";
     } else {
         echo "<script> alert('Erro ao excluir funcionário!'); </script>";
     }
