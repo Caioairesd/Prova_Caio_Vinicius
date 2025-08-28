@@ -62,13 +62,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="styles.css">
     <script>
         function aplicarMascaraTelefone(input) {
-            let valor = input.value.replace(/\D/g, ""); // tira tudo que não é número
+            let valor = input.value.replace(/\D/g, "");
 
             if (valor.length <= 10) {
-                // Formato (XX) XXXX-XXXX
+
                 valor = valor.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, "($1) $2-$3");
             } else {
-                // Formato (XX) XXXXX-XXXX
+
                 valor = valor.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, "($1) $2-$3");
             }
 
@@ -104,6 +104,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             return true;
         }
+
+        function somenteLetras(){
+
+            let nome_funcionario = getElementById.value(["nome_funcionario"])
+            nome_funcionario = nome_funcionario.replace(/[0-9]/g, "");
+            document.getElementById("nome_funcionario").value = nome;
+
+            return true;
+        }
+
     </script>
 </head>
 <title>Cadastro de Funcionário</title>
@@ -114,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <h2>Cadastrar Funcionário</h2>
     <form action="cadastro_funcionario.php" method="post" onsubmit="return validarFuncionario()">
         <label for="nome_funcionario">Nome:</label>
-        <input type="text" name="nome_funcionario" id="nome_funcionario" required>
+        <input type="text" name="nome_funcionario" id="nome_funcionario"  oninput="somenteLetras(this,nome_funcionario)" required>
 
         <label for="endereco">Endereço:</label>
         <input type="text" name="endereco" id="endereco" required>

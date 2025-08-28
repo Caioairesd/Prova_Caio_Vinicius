@@ -96,9 +96,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <h2>Cadastrar usuário</h2>
     <form action="cadastro_usuario.php" method="post">
         <label for="nome">Nome:</label>
-        <input type="text" name=" nome" id="nome" onsubmit="return validarUsuario()>
+        <input type="text" name=" nome" id="nome" onsubmit="return validarUsuario()">
 
-        <label for=" email">Email:</label>
+        <label for="email">Email:</label>
         <input type="email" name=" email" id="email" oninput="aplicarMascaraEmail(this)" required>
 
         <label for="senha">Senha:</label>
